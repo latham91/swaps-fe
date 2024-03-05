@@ -41,3 +41,41 @@ nav {
   align-items: center;
   gap: 20px;
 }
+
+.login-link {
+  background-color: black;
+  color: white;
+  padding: 7px 14px;
+  border: 1px solid black;
+  border-radius: 25px;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  &:hover {
+    background: none;
+    color: black;
+  }
+}
+
+nav button {
+  background-color: black;
+  color: white;
+  padding: 7px 14px;
+  border: 1px solid black;
+  border-radius: 25px;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  &:hover {
+    background: none;
+    color: black;
+  }
+}
+
+.brand-logo:hover {
+  color: black;
+}
