@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/Card.css";
 
 // card.jsx
@@ -7,13 +8,15 @@ import "../styles/Card.css";
 
 const Card = ({ title, username, imageUrl }) => {
   return (
-    <div className="card">
-      <img src={imageUrl} alt={title} className="card-image" />
-      <div className="card-content">
-        <h2 className="card-title">{title}</h2>
-        <p className="card-username">{username}</p>
+    <Link to="/product">
+      <div className="card">
+        <img src={imageUrl} alt={title} className="card-image" />
+        <div className="card-content">
+          <h2 className="card-title">{title}</h2>
+          <p className="card-username">{username}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
