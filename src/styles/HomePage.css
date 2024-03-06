@@ -1,7 +1,11 @@
-.homepage {
+.home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.home-page a:hover {
+  color: black;
 }
 
 .card-container {
@@ -9,5 +13,4 @@
   justify-content: center;
   grid-template-columns: repeat(4, 300px);
   gap: 20px;
-  padding: 30px;
 }
