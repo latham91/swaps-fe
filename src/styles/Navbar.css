@@ -1,0 +1,75 @@
+header {
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.login-link {
+  background-color: black;
+  color: white;
+  padding: 7px 14px;
+  border: 1px solid black;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  &:hover {
+    background: none;
+    color: black;
+  }
+}
+
+nav button {
+  background-color: black;
+  color: white;
+  padding: 7px 14px;
+  border: 1px solid black;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  &:hover {
+    background: none;
+    color: black;
+  }
+}
+
+.brand-logo:hover {
+  color: black;
+}
