@@ -46,3 +46,10 @@
     cursor: pointer;
   }
 }
+
+.card-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 300px);
+  gap: 20px;
+}

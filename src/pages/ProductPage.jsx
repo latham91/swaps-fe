@@ -1,4 +1,5 @@
 import "../styles/ProductPage.css";
+import OfferCard from "../components/OfferCard";
 
 export default function ProductPage() {
   return (
@@ -17,6 +18,11 @@ export default function ProductPage() {
         necessitatibus!
       </p>
       <button>Swap</button>
+      <div className="offer-card-container">
+        <OfferCard />
+        <OfferCard />
+        <OfferCard />
+      </div>
     </div>
   );
 }
