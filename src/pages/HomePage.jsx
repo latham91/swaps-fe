@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Card from "../components/Card";
-import "../styles/Homepage.css";
-
-export default function Homepage() {
+import "../styles/HomePage.css";
+export default function HomePage() {
   const cardData = [
     {
       title: "Golf Clubs",
@@ -31,8 +31,8 @@ export default function Homepage() {
   ];
 
   return (
-    <div className="homepage">
-      <h1 className="homepage-title">Latest Swaps</h1>
+    <div className="home-page">
+      <h1 className="home-title">Latest Swaps</h1>
       <div className="card-container">
         {cardData.map((card, index) => (
           <Card
