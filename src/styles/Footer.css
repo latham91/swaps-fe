@@ -1,12 +1,33 @@
 footer {
-    display: flex;    
-    justify-content: center;
-    font: 1em sans-serif;    
-    font-size: 0.75rem;   
-    color: darkgrey;
-    gap: 5px;
+  display: flex;
+  justify-content: center;
+  font: 1em sans-serif;
+  font-size: 0.75rem;
+  color: darkgrey;
+  gap: 4px;
+  margin-top: auto;
+  padding: 20px 0;
+  align-items: center;
 }
 
-footer p{
-    color:black;
+footer p {
+  color: black;
+}
+
+footer ul {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+  a {
+    font-weight: 500;
+
+    &:hover {
+      color: black;
+      text-decoration: underline;
+    }
+  }
 }
