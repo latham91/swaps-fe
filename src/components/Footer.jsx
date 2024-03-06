@@ -16,7 +16,7 @@ function Footer() {
         {socials.map((social, index) => (
           <li key={index}>
             <a href={social.link} target="_blank" rel="noreferrer">
-              {index === 4 ? `& ${social.name}.` : `${social.name},`}
+              {index === 4 ? `& ${social.name}.` : index === 3 ? `${social.name} ` : `${social.name},`}
             </a>
           </li>
         ))}
