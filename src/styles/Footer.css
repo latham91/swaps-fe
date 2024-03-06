@@ -1,0 +1,12 @@
+footer {
+    display: flex;    
+    justify-content: center;
+    font: 1em sans-serif;    
+    font-size: 0.75rem;   
+    color: darkgrey;
+    gap: 5px;
+}
+
+footer p{
+    color:black;
+}
