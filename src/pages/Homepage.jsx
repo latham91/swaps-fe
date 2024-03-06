@@ -32,14 +32,17 @@ export default function Homepage() {
 
   return (
     <div className="homepage">
-      {cardData.map((card, index) => (
-        <Card
-          key={index}
-          title={card.title}
-          username={card.username}
-          imageUrl={card.imageUrl}
-        />
-      ))}
+      <h1 className="homepage-title">Latest Swaps</h1>
+      <div className="card-container">
+        {cardData.map((card, index) => (
+          <Card
+            key={index}
+            title={card.title}
+            username={card.username}
+            imageUrl={card.imageUrl}
+          />
+        ))}
+      </div>
     </div>
   );
 }
