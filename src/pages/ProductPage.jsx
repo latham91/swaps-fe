@@ -17,7 +17,7 @@ export default function ProductPage() {
         eveniet. Perspiciatis sint quidem optio corrupti neque quas voluptas
         necessitatibus!
       </p>
-      <button>Swap</button>
+      <button className="secondary-btn">Swap</button>
       <div className="offer-card-container">
         <OfferCard />
         <OfferCard />

@@ -55,6 +55,7 @@
   width: 40px;
   margin-left: 5px;
   cursor: pointer;
+  border-radius: 8px;
 }
 
 .offer-buttons button.accept-button {
