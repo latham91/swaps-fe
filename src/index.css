@@ -35,3 +35,37 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.primary-btn {
+  background-color: black;
+  color: white;
+  padding: 7px 14px;
+  border: 1px solid black;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  &:hover {
+    background: none;
+    color: black;
+  }
+}
+
+.secondary-btn {
+  background: none;
+  color: black;
+  padding: 7px 14px;
+  border: 1px solid black;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}

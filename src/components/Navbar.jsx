@@ -20,7 +20,8 @@ export default function Navbar() {
                 <Link to="/account">
                   <UserRound />
                 </Link>
-                <button>Logout</button>
+                <button className="secondary-btn">Create</button>
+                <button className="primary-btn">Logout</button>
               </>
             ) : (
               <>
