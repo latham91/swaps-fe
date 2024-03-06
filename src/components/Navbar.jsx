@@ -4,7 +4,7 @@ import { useState } from "react";
 import { UserRound } from "lucide-react";
 
 export default function Navbar() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <header>
       <nav>
