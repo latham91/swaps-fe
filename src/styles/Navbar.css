@@ -25,12 +25,6 @@ nav {
   gap: 80px;
 }
 
-.nav-links-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
 .nav-right {
   display: flex;
   align-items: center;
@@ -47,7 +41,7 @@ nav {
   color: white;
   padding: 7px 14px;
   border: 1px solid black;
-  border-radius: 25px;
+  border-radius: 8px;
   outline: none;
   cursor: pointer;
   font-weight: bold;
@@ -64,7 +58,7 @@ nav button {
   color: white;
   padding: 7px 14px;
   border: 1px solid black;
-  border-radius: 25px;
+  border-radius: 8px;
   outline: none;
   cursor: pointer;
   font-weight: bold;

@@ -12,10 +12,6 @@ export default function Navbar() {
           <Link className="brand-logo" to="/">
             Swaps
           </Link>
-          <div className="nav-links-left">
-            <Link to="/">Home</Link>
-            <Link to="/about">Account</Link>
-          </div>
         </div>
         <div className="nav-right">
           <div className="nav-links-right">
@@ -28,7 +24,9 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link to="/register">Register</Link>
+                <Link className="sign-up-link" to="/signup">
+                  Sign Up
+                </Link>
                 <Link className="login-link" to="/login">
                   Login
                 </Link>
