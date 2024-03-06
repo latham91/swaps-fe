@@ -1,0 +1,48 @@
+.card {
+  width: 300px;
+  height: 300px;
+  border: 1px solid lightgrey;
+  overflow: hidden;
+  position: relative;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-image {
+  transform: scale(1.1);
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.card-username {
+  color: black;
+  &:hover {
+    cursor: pointer;
+  }
+}
