@@ -4,6 +4,7 @@
   border: 1px solid lightgrey;
   overflow: hidden;
   position: relative;
+  text-align: center;
   &:hover {
     cursor: pointer;
   }
@@ -21,6 +22,11 @@
 }
 
 .card-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 70px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -33,7 +39,6 @@
 
 .card-title {
   font-size: 1.2em;
-  margin-bottom: 8px;
   &:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -42,6 +47,7 @@
 
 .card-username {
   color: black;
+
   &:hover {
     cursor: pointer;
   }

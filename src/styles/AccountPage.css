@@ -1,0 +1,87 @@
+.account-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+.account-heading {
+  text-align: center;
+}
+
+#account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+      font-size: 14px;
+    }
+
+    input {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid black;
+
+      &:focus {
+        outline-color: black;
+      }
+    }
+  }
+
+  .view-listings-btn {
+    padding: 10px 14px;
+    background-color: black;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+      background-color: rgb(32, 32, 32);
+      color: white;
+    }
+  }
+
+  .accept-changes-btn {
+    padding: 10px 14px;
+    background-color: #45a049;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #4caf50;
+      color: white;
+    }
+  }
+
+  .delete-account-btn {
+    padding: 10px 14px;
+    background-color: #d32f2f;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e57373;
+      color: white;
+    }
+  }
+}

@@ -1,31 +1,19 @@
-import "../styles/SignUpPage.css";
+import "../styles/LoginPage.css";
 import { XSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export default function SignUpPage() {
-  const { errorMsg, loading, credentials, setCredentials, handleSignup } = useContext(AuthContext);
-
+  const { errorMsg, loading, credentials, setCredentials, handleLogin } = useContext(AuthContext);
   return (
     <div className="container">
-      <div className="signup-container">
-        <div className="signup-heading">
-          <h1>Sign up</h1>
-          <p>Join our community of swappers by creating an account.</p>
+      <div className="login-container">
+        <div className="login-heading">
+          <h1>Log In</h1>
+          <p>Welcome back, sign in to view the latest swaps.</p>
         </div>
-        <form onSubmit={(e) => handleSignup(e)} id="signup-form">
-          <div className="input-container">
-            <input
-              onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-              disabled={loading}
-            />
-          </div>
-
+        <form onSubmit={(e) => handleLogin(e)} id="login-form">
           <div className="input-container">
             <input
               onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
@@ -49,17 +37,17 @@ export default function SignUpPage() {
           </div>
 
           {errorMsg && (
-            <div className="signup-form-error">
+            <div className="login-form-error">
               <XSquare />
               {errorMsg}
             </div>
           )}
 
           <button type="submit" disabled={loading}>
-            {loading ? "Signing up..." : "Sign up"}
+            {loading ? "Logging in..." : "Log in"}
           </button>
           <div className="form-footer">
-            Already have an account? <Link to="/login">Log in</Link>
+            Don&apos;t have an account? <Link to="/signup">Sign up</Link>
           </div>
         </form>
       </div>
