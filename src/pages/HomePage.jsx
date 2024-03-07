@@ -1,8 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Card from "../components/Card";
 import "../styles/HomePage.css";
+import { useEffect, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { userSession } from "../utils/authFetch";
+
+import Card from "../components/Card";
+
 export default function HomePage() {
+  const { setUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    const getSession = async () => {
+      const data = await userSession();
+
+      if (data.success) {
+        setUser(data.user);
+      }
+    };
+
+    getSession();
+  }, [setUser]);
+
   const cardData = [
     {
       title: "Golf Clubs",
@@ -35,12 +52,7 @@ export default function HomePage() {
       <h1 className="home-title">Latest Swaps</h1>
       <div className="card-container">
         {cardData.map((card, index) => (
-          <Card
-            key={index}
-            title={card.title}
-            username={card.username}
-            imageUrl={card.imageUrl}
-          />
+          <Card key={index} title={card.title} username={card.username} imageUrl={card.imageUrl} />
         ))}
       </div>
     </div>
