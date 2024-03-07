@@ -9,6 +9,7 @@ import CreateListingPage from "./pages/CreateListingPage";
 import AccountPage from "./pages/AccountPage";
 import ViewListingsPage from "./pages/ViewListingsPage";
 import LoginPage from "./pages/LoginPage";
+import PageNotFoundPage from "./pages/PageNotFoundPage";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/create" element={<CreateListingPage />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/view-listings" element={<ViewListingsPage />} />
+        <Route path="/pagenotfound" element={<PageNotFoundPage />} />
       </Routes>
       <Footer />
     </main>
