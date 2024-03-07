@@ -12,6 +12,7 @@ export default function CreateListingPage() {
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const [listingBody, setListingBody] = useState({
     id: user.id,
     title: "",
@@ -41,7 +42,11 @@ export default function CreateListingPage() {
     const data = await createListing(listingBody);
 
     if (!data.success) {
-      return console.log(data.message);
+      setTimeout(() => {
+        setErrorMsg("");
+      }, 3000);
+
+      return setErrorMsg(data.message);
     }
 
     navigate("/");
@@ -97,7 +102,7 @@ export default function CreateListingPage() {
               placeholder="Description"
             />
           </div>
-
+          {errorMsg && <p className="error-msg">{errorMsg}</p>}
           <button className="secondary-btn" type="submit">
             Create
           </button>
