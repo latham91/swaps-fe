@@ -4,7 +4,7 @@ import { useState } from "react";
 import { UserRound } from "lucide-react";
 
 export default function Navbar() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   return (
     <header>
       <nav>
@@ -20,7 +20,9 @@ export default function Navbar() {
                 <Link to="/account">
                   <UserRound />
                 </Link>
-                <button className="secondary-btn">Create</button>
+                <Link className="secondary-btn" to="/create">
+                  Create
+                </Link>
                 <button className="primary-btn">Logout</button>
               </>
             ) : (
