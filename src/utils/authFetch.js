@@ -17,3 +17,21 @@ export const userSignup = async (credentials) => {
     return error;
   }
 };
+
+export const userLogin = async (credentials) => {
+  try {
+    const response = await fetch(`${baseUrl}/api/users/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    });
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
