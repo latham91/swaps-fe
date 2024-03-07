@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import ProductPage from "./pages/ProductPage";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
+import PageNotFoundPage from "./pages/PageNotFoundPage";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/product" element={<ProductPage />} />
+        <Route path="/pagenotfound" element={<PageNotFoundPage />} />
       </Routes>
       <Footer />
     </main>
