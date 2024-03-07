@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { createContext, useState } from "react";
-import { userLogin, userLogout, userSession, userSignup } from "../utils/authFetch";
+import { userLogin, userLogout, userSignup } from "../utils/authFetch";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
@@ -101,29 +101,6 @@ function AuthProvider({ children }) {
     }
   };
 
-  ///////SESSION////////
-  const handleSession = async () => {
-    try {
-      setLoading(true);
-      const data = await userSession();
-
-      if (!data.success) {
-        setLoading(false);
-        return setErrorMsg(data.message);
-      }
-
-      setUser(data.user);
-      setLoading(false);
-    } catch (error) {
-      setTimeout(() => {
-        setErrorMsg("");
-      }, 3000);
-
-      setLoading(false);
-      return setErrorMsg(error.message);
-    }
-  };
-
   return (
     <AuthContext.Provider
       value={{
@@ -138,7 +115,6 @@ function AuthProvider({ children }) {
         handleSignup,
         handleLogin,
         handleLogout,
-        handleSession,
       }}
     >
       {children}

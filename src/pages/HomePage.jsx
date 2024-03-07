@@ -1,25 +1,8 @@
 import "../styles/HomePage.css";
-import { useEffect, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { userSession } from "../utils/authFetch";
 
 import Card from "../components/Card";
 
 export default function HomePage() {
-  const { setUser } = useContext(AuthContext);
-
-  useEffect(() => {
-    const getSession = async () => {
-      const data = await userSession();
-
-      if (data.success) {
-        setUser(data.user);
-      }
-    };
-
-    getSession();
-  }, [setUser]);
-
   const cardData = [
     {
       title: "Golf Clubs",
