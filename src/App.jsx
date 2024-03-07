@@ -5,6 +5,9 @@ import Footer from "./components/Footer";
 import ProductPage from "./pages/ProductPage";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
+import CreateListingPage from "./pages/CreateListingPage";
+import AccountPage from "./pages/AccountPage";
+import ViewListingsPage from "./pages/ViewListingsPage";
 
 export default function App() {
   return (
@@ -14,6 +17,9 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/product" element={<ProductPage />} />
+        <Route path="/create" element={<CreateListingPage />} />
+        <Route path="/account" element={<AccountPage />} />
+        <Route path="/view-listings" element={<ViewListingsPage />} />
       </Routes>
       <Footer />
     </main>
