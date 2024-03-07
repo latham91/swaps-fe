@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { createContext, useState } from "react";
-import { userLogin, userSignup } from "../utils/authFetch";
+import { userLogin, userLogout, userSignup } from "../utils/authFetch";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
@@ -15,6 +15,7 @@ function AuthProvider({ children }) {
   const [credentials, setCredentials] = useState({});
 
   // Functions
+  ///////SIGNUP////////
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -45,6 +46,7 @@ function AuthProvider({ children }) {
     }
   };
 
+  ///////LOGIN////////
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -75,6 +77,21 @@ function AuthProvider({ children }) {
       return setErrorMsg(error.message);
     }
   };
+  ///////LOGOUT////////
+  const handleLogout = async () => {
+    try {
+      const data = await userLogout();
+
+      if (!data.success) {
+        return setErrorMsg(data.message);
+      }
+
+      setUser(null);
+      navigate("/");
+    } catch (error) {
+      return error;
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -89,6 +106,7 @@ function AuthProvider({ children }) {
         setCredentials,
         handleSignup,
         handleLogin,
+        handleLogout,
       }}
     >
       {children}
