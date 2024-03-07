@@ -1,26 +1,22 @@
-import "../styles/SignUpPage.css";
+import "../styles/LoginPage.css";
 import { XSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export default function SignUpPage() {
-  const { errorMsg, loading, credentials, setCredentials, handleSignup } =
-    useContext(AuthContext);
-
+  const { errorMsg, loading, credentials, setCredentials, handleLogin } = useContext(AuthContext);
   return (
     <div className="container">
-      <div className="signup-container">
-        <div className="signup-heading">
+      <div className="login-container">
+        <div className="login-heading">
           <h1>Log In</h1>
-          <p>Join our community of swappers by creating an account.</p>
+          <p>Welcome back, sign in to view the latest swaps.</p>
         </div>
-        <form onSubmit={(e) => handleSignup(e)} id="signup-form">
+        <form onSubmit={(e) => handleLogin(e)} id="login-form">
           <div className="input-container">
             <input
-              onChange={(e) =>
-                setCredentials({ ...credentials, email: e.target.value })
-              }
+              onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
               type="email"
               name="email"
               id="email"
@@ -31,9 +27,7 @@ export default function SignUpPage() {
 
           <div className="input-container">
             <input
-              onChange={(e) =>
-                setCredentials({ ...credentials, password: e.target.value })
-              }
+              onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
               type="password"
               name="password"
               id="password"
@@ -43,17 +37,17 @@ export default function SignUpPage() {
           </div>
 
           {errorMsg && (
-            <div className="signup-form-error">
+            <div className="login-form-error">
               <XSquare />
               {errorMsg}
             </div>
           )}
 
           <button type="submit" disabled={loading}>
-            {loading ? "Signing up..." : "Sign up"}
+            {loading ? "Logging in..." : "Log in"}
           </button>
           <div className="form-footer">
-            Already have an account? <Link to="/login">Log in</Link>
+            Don&apos;t have an account? <Link to="/signup">Sign up</Link>
           </div>
         </form>
       </div>
