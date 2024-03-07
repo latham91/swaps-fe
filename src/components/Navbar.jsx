@@ -1,10 +1,11 @@
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { UserRound } from "lucide-react";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Navbar() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const { user } = useContext(AuthContext);
   return (
     <header>
       <nav>
@@ -15,7 +16,7 @@ export default function Navbar() {
         </div>
         <div className="nav-right">
           <div className="nav-links-right">
-            {loggedIn ? (
+            {user ? (
               <>
                 <Link to="/account">
                   <UserRound />

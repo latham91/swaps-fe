@@ -15,7 +15,9 @@ function AuthProvider({ children }) {
   const [credentials, setCredentials] = useState({});
 
   // Functions
-  const handleSignup = async () => {
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
     try {
       setLoading(true);
       const data = await userSignup(credentials);
@@ -32,7 +34,7 @@ function AuthProvider({ children }) {
       setCredentials({});
       setLoading(false);
 
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       setTimeout(() => {
         setErrorMsg("");
