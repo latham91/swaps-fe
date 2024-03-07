@@ -61,8 +61,8 @@ function AuthProvider({ children }) {
         return setErrorMsg(data.message);
       }
 
-      setCredentials({});
       setUser(data.user);
+      setCredentials({});
       setLoading(false);
 
       navigate("/");
