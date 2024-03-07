@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Image } from "lucide-react";
 import "../styles/CreateListingPage.css";
 
@@ -39,13 +39,7 @@ export default function CreateListingPage() {
               </>
             )}
           </label>
-          <input
-            type="file"
-            id="image"
-            accept="image/*"
-            style={{ display: "none" }}
-            onChange={handleImageChange}
-          />
+          <input type="file" id="image" accept="image/*" style={{ display: "none" }} onChange={handleImageChange} />
         </div>
 
         <form id="create-listing-form">
@@ -54,12 +48,7 @@ export default function CreateListingPage() {
           </div>
 
           <div className="input-container">
-            <input
-              type="text"
-              name="description"
-              id="description"
-              placeholder="Description"
-            />
+            <input type="text" name="description" id="description" placeholder="Description" />
           </div>
 
           <button className="secondary-btn" type="submit">

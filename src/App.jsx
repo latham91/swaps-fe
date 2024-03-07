@@ -9,6 +9,7 @@ import CreateListingPage from "./pages/CreateListingPage";
 import AccountPage from "./pages/AccountPage";
 import ViewListingsPage from "./pages/ViewListingsPage";
 import LoginPage from "./pages/LoginPage";
+
 export default function App() {
   return (
     <main className="main-container">
