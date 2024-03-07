@@ -1,16 +1,50 @@
-import { useState } from "react";
-import { Image } from "lucide-react";
 import "../styles/CreateListingPage.css";
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+
+import { Image } from "lucide-react";
+import { createListing } from "../utils/listingFetch";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateListingPage() {
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
   const [selectedImage, setSelectedImage] = useState(null);
+  const [fileName, setFileName] = useState("");
+  const [listingBody, setListingBody] = useState({
+    id: user.id,
+    title: "",
+    description: "",
+    image: null,
+  });
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
 
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
+      setFileName(file.name);
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = reader.result;
+        setListingBody({ ...listingBody, image: base64 });
+      };
+      reader.readAsDataURL(file);
     }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = await createListing(listingBody);
+
+    if (!data.success) {
+      return console.log(data.message);
+    }
+
+    navigate("/");
   };
 
   return (
@@ -39,16 +73,29 @@ export default function CreateListingPage() {
               </>
             )}
           </label>
+          {fileName ? <p>{fileName.substring(0, 40) + "..."}</p> : null}
           <input type="file" id="image" accept="image/*" style={{ display: "none" }} onChange={handleImageChange} />
         </div>
 
-        <form id="create-listing-form">
+        <form onSubmit={(e) => handleSubmit(e)} id="create-listing-form">
           <div className="input-container">
-            <input type="text" name="title" id="title" placeholder="Title" />
+            <input
+              onChange={(e) => setListingBody({ ...listingBody, title: e.target.value })}
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Title"
+            />
           </div>
 
           <div className="input-container">
-            <input type="text" name="description" id="description" placeholder="Description" />
+            <input
+              onChange={(e) => setListingBody({ ...listingBody, description: e.target.value })}
+              type="text"
+              name="description"
+              id="description"
+              placeholder="Description"
+            />
           </div>
 
           <button className="secondary-btn" type="submit">

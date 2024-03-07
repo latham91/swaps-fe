@@ -1,43 +1,43 @@
 import "../styles/HomePage.css";
+import { useEffect, useState } from "react";
+import { getAllListings } from "../utils/listingFetch";
 
 import Card from "../components/Card";
 
 export default function HomePage() {
-  const cardData = [
-    {
-      title: "Golf Clubs",
-      username: "@aaron",
-      imageUrl:
-        "https://images.pexels.com/photos/6572954/pexels-photo-6572954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
-    {
-      title: "Gameboy Color",
-      username: "@andrewc",
-      imageUrl:
-        "https://images.pexels.com/photos/2263822/pexels-photo-2263822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
-    {
-      title: "Books",
-      username: "@leandro",
-      imageUrl:
-        "https://images.pexels.com/photos/990432/pexels-photo-990432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
-    {
-      title: "Bird Feeder",
-      username: "@andrewm",
-      imageUrl:
-        "https://images.pexels.com/photos/14724593/pexels-photo-14724593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
-  ];
+  const [listings, setListings] = useState([]);
+
+  useEffect(() => {
+    const fetchListings = async () => {
+      const data = await getAllListings();
+
+      if (data.success) {
+        setListings(data.listings);
+      }
+    };
+
+    fetchListings();
+  }, []);
 
   return (
     <div className="home-page">
       <h1 className="home-title">Latest Swaps</h1>
-      <div className="card-container">
-        {cardData.map((card, index) => (
-          <Card key={index} title={card.title} username={card.username} imageUrl={card.imageUrl} />
-        ))}
-      </div>
+      {listings.length === 0 ? (
+        <h2>No swaps founds, be the first to create one.</h2>
+      ) : (
+        <div className="card-container">
+          {listings.map((listing) => {
+            return (
+              <Card
+                key={listing._id}
+                title={listing.title}
+                imageUrl={listing.imageUrl}
+                username={listing.userId.username}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
