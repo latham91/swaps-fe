@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "../styles/Card.css";
-import React from "react";
 import PropTypes from "prop-types";
 import "../styles/Card.css";
 
@@ -11,7 +10,7 @@ const Card = ({ title, username, imageUrl }) => {
         <img src={imageUrl} alt={title} className="card-image" />
         <div className="card-content">
           <h2 className="card-title">{title}</h2>
-          <p className="card-username">{username}</p>
+          <p className="card-username">@{username}</p>
         </div>
       </div>
     </Link>
