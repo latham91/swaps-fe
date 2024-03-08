@@ -1,5 +1,8 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "./context/AuthContext";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProductPage from "./pages/ProductPage";
@@ -9,9 +12,24 @@ import CreateListingPage from "./pages/CreateListingPage";
 import AccountPage from "./pages/AccountPage";
 import ViewListingsPage from "./pages/ViewListingsPage";
 import LoginPage from "./pages/LoginPage";
+import { userSession } from "./utils/authFetch";
 import PageNotFoundPage from "./pages/PageNotFoundPage";
 
 export default function App() {
+  const { setUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    const getSession = async () => {
+      const data = await userSession();
+
+      if (data.success) {
+        setUser(data.user);
+      }
+    };
+
+    getSession();
+  }, [setUser]);
+
   return (
     <main className="main-container">
       <Navbar />

@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export default function Navbar() {
-  const { user } = useContext(AuthContext);
+  const { user, handleLogout } = useContext(AuthContext);
   return (
     <header>
       <nav>
@@ -24,7 +24,9 @@ export default function Navbar() {
                 <Link className="secondary-btn" to="/create">
                   Create
                 </Link>
-                <button className="primary-btn">Logout</button>
+                <button onClick={handleLogout} className="primary-btn">
+                  Logout
+                </button>
               </>
             ) : (
               <>
