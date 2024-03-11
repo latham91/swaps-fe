@@ -64,11 +64,19 @@ export default function ProductPage() {
       {listing.offersArray.length > 0 ? (
         <div className="offer-card-container">
           {listing.offersArray.map((offer) => (
-            <OfferCard key={offer._id} offer={offer.offerListingId} />
+            <OfferCard
+              key={offer._id}
+              offer={offer.offerListingId}
+              isAccepted={offer.isAccepted}
+              user={user ? user.id : null}
+              listingUser={listing.userId._id}
+            />
           ))}
         </div>
       ) : (
-        <h2>No offers yet</h2>
+        <div className="offer-card-container">
+          <h3 style={{ textAlign: "center" }}>No offers yet</h3>
+        </div>
       )}
     </div>
   );

@@ -10,6 +10,35 @@
   border-radius: 8px;
 }
 
+.offer-card-swap {
+  width: auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid lightgray;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.offer-card-accepted {
+  width: auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid green;
+  margin-bottom: 10px;
+  background-color: lightgreen;
+  border-radius: 8px;
+}
+
 .offer-card:last-child {
   margin: 0;
 }
