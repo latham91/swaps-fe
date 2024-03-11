@@ -11,6 +11,17 @@ export const getAllListings = async () => {
   }
 };
 
+export const getListingById = async (id) => {
+  try {
+    const response = await fetch(`${baseUrl}/api/listings/get-listing-by-id/${id}`);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const createListing = async (listing) => {
   try {
     const response = await fetch(`${baseUrl}/api/listings/post-listing`, {
