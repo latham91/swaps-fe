@@ -14,6 +14,8 @@ import ViewListingsPage from "./pages/ViewListingsPage";
 import LoginPage from "./pages/LoginPage";
 import { userSession } from "./utils/authFetch";
 import PageNotFoundPage from "./pages/PageNotFoundPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
   const { setUser } = useContext(AuthContext);
@@ -32,6 +34,7 @@ export default function App() {
 
   return (
     <main className="main-container">
+      <ToastContainer position="top-center" />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />

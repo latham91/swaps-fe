@@ -24,13 +24,15 @@ export default function Modal({ onClose, wantedId }) {
         {listings.length > 0 ? (
           <div className="offer-cards">
             {listings.map((listing) => (
-              <OfferCard key={listing._id} swapListing={listing} wantedId={wantedId} type="swap" />
+              <OfferCard key={listing._id} swapListing={listing} wantedId={wantedId} type="swap" closeModal={onClose} />
             ))}
           </div>
         ) : (
           <h3>You have no listings to swap</h3>
         )}
-        <button onClick={onClose}>Close</button>
+        <button onClick={onClose} className="primary-btn">
+          Close
+        </button>
       </div>
     </div>
   );
