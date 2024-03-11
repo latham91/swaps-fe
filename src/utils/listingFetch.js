@@ -40,3 +40,16 @@ export const createListing = async (listing) => {
     return error;
   }
 };
+
+export const getUsersListings = async (userId) => {
+  try {
+    const response = await fetch(`${baseUrl}/api/listings/get-users-listings/${userId}`, {
+      credentials: "include",
+    });
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};

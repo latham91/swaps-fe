@@ -26,3 +26,12 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
+.offer-card-container {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 25px 10px;
+  background-color: lightgrey;
+}
