@@ -13,6 +13,7 @@ import AccountPage from "./pages/AccountPage";
 import ViewListingsPage from "./pages/ViewListingsPage";
 import LoginPage from "./pages/LoginPage";
 import { userSession } from "./utils/authFetch";
+import PageNotFoundPage from "./pages/PageNotFoundPage";
 
 export default function App() {
   const { setUser } = useContext(AuthContext);
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/create" element={<CreateListingPage />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/view-listings" element={<ViewListingsPage />} />
+        <Route path="/pagenotfound" element={<PageNotFoundPage />} />
       </Routes>
       <Footer />
     </main>

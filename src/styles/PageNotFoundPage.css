@@ -1,0 +1,13 @@
+h1 {
+    display: flex;
+    filter: black(100%);
+    justify-content: center;
+    font: 1em sans-serif;     
+}
+
+p {
+    display: flex;
+    color: darkgrey;
+    justify-content: center;
+    font: 1em sans-serif;
+}
