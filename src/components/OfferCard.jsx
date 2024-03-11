@@ -1,17 +1,31 @@
 import "../styles/OfferCard.css";
+import PropTypes from "prop-types";
 import { Check, X } from "lucide-react";
+import { createSwap } from "../utils/offerFetch";
 
-const OfferCard = ({ type }) => {
+const OfferCard = ({ type, swapListing, offer, wantedId }) => {
+  console.log(swapListing);
+
+  const handleSwap = async (offerId) => {
+    const data = await createSwap(wantedId, offerId);
+
+    if (data.success) {
+      return console.log(data.newOffer);
+    }
+
+    console.log(data.error);
+  };
+
   return (
-    <div className="offer-card">
+    <div onClick={() => handleSwap(swapListing._id)} className="offer-card">
       <img
         className="offer-image"
-        src="https://images.pexels.com/photos/2263822/pexels-photo-2263822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        alt="Offer Image"
+        src={type === "swap" ? swapListing.imageUrl : offer.imageUrl}
+        alt={type === "swap" ? swapListing.title : offer.title}
       />
       <div className="offer-details">
-        <p className="offer-title">Product Title</p>
-        {type != "swap" && <p className="offer-username">@username</p>}
+        <p className="offer-title">{type === "swap" ? swapListing.title : offer.title}</p>
+        {type != "swap" && <p className="offer-username">@{offer.userId.username}</p>}
       </div>
       {type != "swap" && (
         <div className="offer-buttons">
@@ -28,3 +42,10 @@ const OfferCard = ({ type }) => {
 };
 
 export default OfferCard;
+
+OfferCard.propTypes = {
+  type: PropTypes.string,
+  swapListing: PropTypes.object,
+  offer: PropTypes.object,
+  wantedId: PropTypes.string,
+};
