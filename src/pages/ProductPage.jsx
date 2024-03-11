@@ -62,7 +62,7 @@ export default function ProductPage() {
         <h2 className="product-username">@{listing.userId.username}</h2>
         <p className="product-description">{listing.description}</p>
 
-        {user && user.id !== listing.userId._id && (
+        {user && user.id !== listing.userId._id && !listing.offersArray.some((offer) => offer.isAccepted) && (
           <button className="secondary-btn" onClick={handleSwapClick}>
             Swap
           </button>
@@ -89,6 +89,7 @@ export default function ProductPage() {
               {listing.offersArray.map((offer) => (
                 <OfferCard
                   key={offer._id}
+                  offerId={offer._id}
                   offer={offer.offerListingId}
                   isAccepted={offer.isAccepted}
                   user={user ? user.id : null}

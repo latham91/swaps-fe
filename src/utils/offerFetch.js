@@ -18,3 +18,33 @@ export const createSwap = async (wantedId, offeredId) => {
     return error;
   }
 };
+
+export const declineOffer = async (offerId) => {
+  try {
+    const response = await fetch(`${baseUrl}/api/offers/decline-offer/${offerId}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const acceptOffer = async (offerId) => {
+  try {
+    const response = await fetch(`${baseUrl}/api/offers/accept-offer/${offerId}`, {
+      method: "POST",
+      credentials: "include",
+    });
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
