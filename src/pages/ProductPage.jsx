@@ -1,7 +1,20 @@
+// ProductPage.jsx
+import React, { useState } from "react";
 import "../styles/ProductPage.css";
 import OfferCard from "../components/OfferCard";
+import Modal from "../components/Modal";
 
 export default function ProductPage() {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleSwapClick = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div className="product-page">
       <h1 className="product-title">Product Title</h1>
@@ -17,7 +30,12 @@ export default function ProductPage() {
         eveniet. Perspiciatis sint quidem optio corrupti neque quas voluptas
         necessitatibus!
       </p>
-      <button className="secondary-btn">Swap</button>
+      <button className="secondary-btn" onClick={handleSwapClick}>
+        Swap
+      </button>
+
+      {isModalOpen && <Modal onClose={closeModal} />}
+
       <div className="offer-card-container">
         <OfferCard />
         <OfferCard />
