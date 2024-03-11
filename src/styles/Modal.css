@@ -22,7 +22,7 @@
   overflow-y: auto;
 }
 
-.modal-content h2 {
+.modal-title {
   text-align: center;
   margin-bottom: 10px;
 }

@@ -7,7 +7,7 @@ export default function Modal({ onClose }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Your Listings</h2>
+        <h2 className="modal-title">Your Listings</h2>
         <OfferCard type="swap" />
         <OfferCard type="swap" />
         <OfferCard type="swap" />
