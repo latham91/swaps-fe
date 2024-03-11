@@ -1,7 +1,7 @@
 import "../styles/OfferCard.css";
 import { Check, X } from "lucide-react";
 
-const OfferCard = () => {
+const OfferCard = ({ type }) => {
   return (
     <div className="offer-card">
       <img
@@ -11,16 +11,18 @@ const OfferCard = () => {
       />
       <div className="offer-details">
         <p className="offer-title">Product Title</p>
-        <p className="offer-username">@username</p>
+        {type != "swap" && <p className="offer-username">@username</p>}
       </div>
-      <div className="offer-buttons">
-        <button className="accept-button">
-          <X />
-        </button>
-        <button className="decline-button">
-          <Check />
-        </button>
-      </div>
+      {type != "swap" && (
+        <div className="offer-buttons">
+          <button className="accept-button">
+            <X />
+          </button>
+          <button className="decline-button">
+            <Check />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
