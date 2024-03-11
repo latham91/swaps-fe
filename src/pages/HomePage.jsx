@@ -30,6 +30,7 @@ export default function HomePage() {
             return (
               <Card
                 key={listing._id}
+                id={listing._id}
                 title={listing.title}
                 imageUrl={listing.imageUrl}
                 username={listing.userId.username}

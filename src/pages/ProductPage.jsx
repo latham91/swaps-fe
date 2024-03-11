@@ -1,11 +1,14 @@
-// ProductPage.jsx
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/ProductPage.css";
 import OfferCard from "../components/OfferCard";
 import Modal from "../components/Modal";
+import { getListingById } from "../utils/listingFetch";
+import { useParams } from "react-router-dom";
 
 export default function ProductPage() {
+  const { listingId } = useParams();
   const [isModalOpen, setModalOpen] = useState(false);
+  const [listing, setListing] = useState({});
 
   const handleSwapClick = () => {
     setModalOpen(true);
@@ -15,21 +18,25 @@ export default function ProductPage() {
     setModalOpen(false);
   };
 
+  useEffect(() => {
+    const getListing = async () => {
+      const data = await getListingById(listingId);
+      setListing(data.listing);
+    };
+
+    getListing();
+  }, [listingId]);
+
+  if (!listing.userId) {
+    return <h1>Loading listing...</h1>;
+  }
+
   return (
     <div className="product-page">
-      <h1 className="product-title">Product Title</h1>
-      <img
-        className="product-image"
-        src="https://images.pexels.com/photos/6572954/pexels-photo-6572954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        alt="Product Image"
-      />
-      <h2 className="product-username">@username</h2>
-      <p className="product-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-        omnis dolore corrupti quam harum neque a fugit numquam modi, impedit
-        eveniet. Perspiciatis sint quidem optio corrupti neque quas voluptas
-        necessitatibus!
-      </p>
+      <h1 className="product-title">{listing.title}</h1>
+      <img className="product-image" src={listing.imageUrl} alt={listing.title} />
+      <h2 className="product-username">@{listing.userId.username}</h2>
+      <p className="product-description">{listing.description}</p>
       <button className="secondary-btn" onClick={handleSwapClick}>
         Swap
       </button>
