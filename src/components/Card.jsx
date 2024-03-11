@@ -3,9 +3,9 @@ import "../styles/Card.css";
 import PropTypes from "prop-types";
 import "../styles/Card.css";
 
-const Card = ({ title, username, imageUrl }) => {
+const Card = ({ title, username, imageUrl, id }) => {
   return (
-    <Link to="/product">
+    <Link to={`/product/${id}`}>
       <div className="card">
         <img src={imageUrl} alt={title} className="card-image" />
         <div className="card-content">
@@ -21,6 +21,7 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   username: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default Card;
