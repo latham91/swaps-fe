@@ -22,7 +22,6 @@ export default function ProductPage() {
     const getListing = async () => {
       const data = await getListingById(listingId);
       setListing(data.listing);
-      console.log(data.listing);
     };
 
     getListing();
