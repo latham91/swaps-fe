@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import { Check, X } from "lucide-react";
 import { createSwap } from "../utils/offerFetch";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const OfferCard = ({ type, swapListing, offer, wantedId, isAccepted, user, listingUser, closeModal }) => {
+  const navigate = useNavigate();
   const handleSwap = async (offerId) => {
     if (type !== "swap") return;
 
@@ -18,16 +20,18 @@ const OfferCard = ({ type, swapListing, offer, wantedId, isAccepted, user, listi
     closeModal();
   };
 
+  const handleClick = () => {
+    if (type === "swap") {
+      handleSwap(swapListing._id);
+    } else {
+      navigate(`/product/${offer._id}`);
+    }
+  };
+
   return (
     <>
       <div
-        onClick={
-          type === "swap"
-            ? () => handleSwap(swapListing._id)
-            : () => {
-                return;
-              }
-        }
+        onClick={handleClick}
         className={`${isAccepted ? "offer-card-accepted" : "offer-card"} ${
           type === "swap" ? "offer-card-swap" : "offer-card"
         }`}

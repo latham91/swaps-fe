@@ -18,15 +18,22 @@ export default function Navbar() {
           <div className="nav-links-right">
             {user ? (
               <>
-                <Link to="/account">
-                  <UserRound />
-                </Link>
-                <Link className="secondary-btn" to="/create">
-                  Create
-                </Link>
-                <button onClick={handleLogout} className="primary-btn">
-                  Logout
-                </button>
+                <div className="nav-user">
+                  <p>
+                    Welcome back, <strong>{user.username}</strong>
+                  </p>
+                  <Link to="/account">
+                    <UserRound />
+                  </Link>
+                </div>
+                <div className="nav-buttons">
+                  <Link className="secondary-btn" to="/create">
+                    Create
+                  </Link>
+                  <button onClick={handleLogout} className="primary-btn">
+                    Logout
+                  </button>
+                </div>
               </>
             ) : (
               <>

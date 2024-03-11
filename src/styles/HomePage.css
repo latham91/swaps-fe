@@ -9,3 +9,23 @@
 .home-page a:hover {
   color: black;
 }
+
+.card-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
