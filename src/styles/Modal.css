@@ -11,8 +11,18 @@
 }
 
 .modal-content {
+  width: 500px;
+  height: 450px;
   background: #fff;
   padding: 20px;
-  border-radius: 8px;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 10px;
 }
