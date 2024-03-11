@@ -6,6 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 
 export default function SignUpPage() {
   const { errorMsg, loading, credentials, setCredentials, handleLogin } = useContext(AuthContext);
+
   return (
     <div className="container">
       <div className="login-container">
