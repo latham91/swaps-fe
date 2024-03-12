@@ -44,7 +44,8 @@ export default function App() {
         <Route path="/create" element={<CreateListingPage />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/view-listings" element={<ViewListingsPage />} />
-        <Route path="/pagenotfound" element={<PageNotFoundPage />} />
+        <Route path="/product" element={<PageNotFoundPage />} />
+        <Route path="*" element={<PageNotFoundPage />} />
       </Routes>
       <Footer />
     </main>

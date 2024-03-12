@@ -5,9 +5,10 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
   margin: 0 auto;
-  gap: 50px;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .login-heading {

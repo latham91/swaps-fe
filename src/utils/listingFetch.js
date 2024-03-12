@@ -53,3 +53,18 @@ export const getUsersListings = async (userId) => {
     return error;
   }
 };
+
+export const deleteListing = async (listingId) => {
+  try {
+    const response = await fetch(`${baseUrl}/api/listings/delete-listing/${listingId}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};

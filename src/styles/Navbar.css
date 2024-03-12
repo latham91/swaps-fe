@@ -9,8 +9,21 @@ nav {
   align-items: center;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0;
   border-bottom: 1px solid lightgrey;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .brand-logo {
@@ -56,4 +69,10 @@ nav {
 
 .brand-logo:hover {
   color: black;
+}
+
+@media screen and (max-width: 720px) {
+  .nav-user p {
+    display: none;
+  }
 }

@@ -1,10 +1,12 @@
 import "../styles/OfferCard.css";
 import PropTypes from "prop-types";
 import { Check, X } from "lucide-react";
-import { createSwap } from "../utils/offerFetch";
+import { acceptOffer, createSwap, declineOffer } from "../utils/offerFetch";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
-const OfferCard = ({ type, swapListing, offer, wantedId, isAccepted, user, listingUser, closeModal }) => {
+const OfferCard = ({ type, swapListing, offer, wantedId, isAccepted, user, listingUser, closeModal, offerId }) => {
+  const navigate = useNavigate();
   const handleSwap = async (offerId) => {
     if (type !== "swap") return;
 
@@ -18,36 +20,72 @@ const OfferCard = ({ type, swapListing, offer, wantedId, isAccepted, user, listi
     closeModal();
   };
 
+  const handleClick = () => {
+    if (type === "swap") {
+      handleSwap(swapListing._id);
+    } else {
+      navigate(`/product/${offer._id}`);
+    }
+  };
+
+  const handleDeclineOffer = async () => {
+    const answer = window.confirm("Are you sure you want to decline this offer?");
+
+    if (answer) {
+      const data = await declineOffer(offerId);
+
+      if (!data.success) {
+        return toast.error(data.message);
+      }
+
+      toast.success("Offer declined!");
+    }
+
+    return;
+  };
+
+  const handleAcceptOffer = async () => {
+    const answer = window.confirm("Are you sure you want to accept this offer?");
+
+    if (answer) {
+      const data = await acceptOffer(offerId);
+
+      if (!data.success) {
+        return toast.error(data.message);
+      }
+
+      toast.success("Offer accepted!");
+    }
+
+    return;
+  };
+
   return (
     <>
       <div
-        onClick={
-          type === "swap"
-            ? () => handleSwap(swapListing._id)
-            : () => {
-                return;
-              }
-        }
         className={`${isAccepted ? "offer-card-accepted" : "offer-card"} ${
           type === "swap" ? "offer-card-swap" : "offer-card"
         }`}
       >
         <img
+          onClick={handleClick}
           className="offer-image"
           src={type === "swap" ? swapListing.imageUrl : offer.imageUrl}
           alt={type === "swap" ? swapListing.title : offer.title}
         />
         <div className="offer-details">
-          <p className="offer-title">{type === "swap" ? swapListing.title : offer.title}</p>
+          <p onClick={handleClick} className="offer-title">
+            {type === "swap" ? swapListing.title : offer.title}
+          </p>
 
           {type != "swap" && <p className="offer-username">@{offer.userId.username}</p>}
         </div>
         {type != "swap" && user === listingUser && (
           <div className="offer-buttons">
-            <button className="accept-button">
+            <button onClick={handleDeclineOffer} className="decline-button">
               <X />
             </button>
-            <button className="decline-button">
+            <button onClick={handleAcceptOffer} className="accept-button">
               <Check />
             </button>
           </div>
@@ -68,4 +106,5 @@ OfferCard.propTypes = {
   user: PropTypes.string,
   listingUser: PropTypes.string,
   closeModal: PropTypes.func,
+  offerId: PropTypes.string,
 };

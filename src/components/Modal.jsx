@@ -1,4 +1,5 @@
 import "../styles/Modal.css";
+import PropTypes from "prop-types";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { getUsersListings } from "../utils/listingFetch";
@@ -37,3 +38,8 @@ export default function Modal({ onClose, wantedId }) {
     </div>
   );
 }
+
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  wantedId: PropTypes.string.isRequired,
+};
