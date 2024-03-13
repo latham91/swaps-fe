@@ -66,8 +66,8 @@ export default function CreateListingPage() {
                 src={selectedImage}
                 alt="Uploaded"
                 style={{
-                  width: "300px",
-                  height: "300px",
+                  width: "100%",
+                  maxHeight: "400px",
                   objectFit: "cover",
                 }}
               />
